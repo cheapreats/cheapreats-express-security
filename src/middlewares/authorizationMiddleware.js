@@ -7,7 +7,10 @@ export async function authorizationMiddleware(req, res, next) {
     if (req.session[OauthConfig.ACCESS_TOKEN_SESSION_VAR]) {
         const user = await OAuthService.getIdentity(req.session[OauthConfig.ACCESS_TOKEN_SESSION_VAR]);
         if (user) {
-            req.user_id = user['user_id'];
+            req.ce = {
+                userId: user['user_id'],
+                accessToken: req.session[OauthConfig.ACCESS_TOKEN_SESSION_VAR],
+            }
             return next();
         }
     }

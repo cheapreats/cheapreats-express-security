@@ -24,12 +24,15 @@ Configure your application, for example, the following code will require OAuth f
 
 ```javascript
 configureOAuth(app, {
-    path: /^\/app.*$/,
+    path: /^\/secure.*$/,
     clientId: 'abcd...' // Your OAuth client ID
 });
 ```
 
-Within these paths, you can now access the variable `req.user_id` is user is authorized.
+Within these paths, you can now access the variable `req.ce` if user is authorized. It is an object with the following fields
+
+* `userId` ID of the user that is currently authorized.
+* `accessToken` Access token, you can use this to call other APIs.
 
 ----
 
