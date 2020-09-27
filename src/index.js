@@ -4,6 +4,7 @@ import {OauthConfig}             from "./config/oauth";
 /**
  * @typedef OAuthConfig
  * @property {!string} clientId Client ID
+ * @property {!string} callbackPath OAuth callback path
  * @property {!any} path Path that requires OAuth
  */
 
