@@ -1,4 +1,5 @@
 import {authorizationMiddleware} from "./middlewares/authorizationMiddleware";
+import {OauthConfig}             from "./config/oauth";
 
 /**
  * @typedef OAuthConfig
@@ -12,5 +13,6 @@ import {authorizationMiddleware} from "./middlewares/authorizationMiddleware";
  * @param {!OAuthConfig} config
  */
 export function configureOAuth(app, config) {
+    OauthConfig.CLIENT_ID = config.clientId;
     app.use(config.path, authorizationMiddleware);
 }
